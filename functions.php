@@ -230,7 +230,7 @@ add_action( 'acf/include_fields', function() {
 			'label' => 'Home logo',
 			'name' => 'home_logo',
 			'aria-label' => '',
-			'type' => 'url',
+			'type' => 'image',
 			'instructions' => '',
 			'required' => 0,
 			'conditional_logic' => 0,
@@ -239,8 +239,16 @@ add_action( 'acf/include_fields', function() {
 				'class' => '',
 				'id' => '',
 			),
-			'default_value' => '',
-			'placeholder' => '',
+			'return_format' => 'url',
+			'library' => 'all',
+			'min_width' => '',
+			'min_height' => '',
+			'min_size' => '',
+			'max_width' => '',
+			'max_height' => '',
+			'max_size' => '',
+			'mime_types' => '',
+			'preview_size' => 'medium',
 		),
 		array(
 			'key' => 'field_66a852f2b18dc',
@@ -284,8 +292,8 @@ add_action( 'acf/include_fields', function() {
 		),
 		array(
 			'key' => 'field_66a8539cb18df',
-			'label' => 'Home goal PT',
-			'name' => 'home_goal_pt',
+			'label' => 'Home goal HT',
+			'name' => 'home_goal_ht',
 			'aria-label' => '',
 			'type' => 'text',
 			'instructions' => '',
@@ -307,7 +315,7 @@ add_action( 'acf/include_fields', function() {
 			'label' => 'Away logo',
 			'name' => 'away_logo',
 			'aria-label' => '',
-			'type' => 'url',
+			'type' => 'image',
 			'instructions' => '',
 			'required' => 0,
 			'conditional_logic' => 0,
@@ -316,8 +324,16 @@ add_action( 'acf/include_fields', function() {
 				'class' => '',
 				'id' => '',
 			),
-			'default_value' => '',
-			'placeholder' => '',
+			'return_format' => 'url',
+			'library' => 'all',
+			'min_width' => '',
+			'min_height' => '',
+			'min_size' => '',
+			'max_width' => '',
+			'max_height' => '',
+			'max_size' => '',
+			'mime_types' => '',
+			'preview_size' => 'medium',
 		),
 		array(
 			'key' => 'field_66a87cf4df9ec',
@@ -361,8 +377,8 @@ add_action( 'acf/include_fields', function() {
 		),
 		array(
 			'key' => 'field_66a87d57df9ee',
-			'label' => 'Away Goal PT',
-			'name' => 'away_goal_pt',
+			'label' => 'Away Goal HT',
+			'name' => 'away_goal_ht',
 			'aria-label' => '',
 			'type' => 'text',
 			'instructions' => '',
@@ -406,31 +422,68 @@ function add_custom_fields_to_matches_content( $content ) {
         
         // Retrieve custom fields
         $end_date = get_post_meta( $post->ID, 'end_date', true );
-        $home_logo = get_post_meta( $post->ID, 'home_logo', true );
         $home_name = get_post_meta( $post->ID, 'home_name', true );
         $home_goal_ft = get_post_meta( $post->ID, 'home_goal_ft', true );
-        $home_goal_pt = get_post_meta( $post->ID, 'home_goal_pt', true );
-        $away_logo = get_post_meta( $post->ID, 'away_logo', true );
+        $home_goal_ht = get_post_meta( $post->ID, 'home_goal_ht', true );
+		$home_logo = wp_get_attachment_url( get_post_meta($post->ID, 'home_logo',true));
+		$away_name = get_post_meta( $post->ID, 'away_name', true );
+		$away_goal_ft = get_post_meta( $post->ID, 'away_goal_ft', true );
+		$away_goal_ht = get_post_meta( $post->ID, 'away_goal_ht', true );
+		$away_logo = wp_get_attachment_url( get_post_meta($post->ID, 'away_logo',true));
 
         // Format the custom fields
-        $custom_fields = "<div class='match-info'>
+        $custom_fields = 
+		"<div class='match-info'>
 			<p>End Date: $end_date</p>
-			<p>Home Logo: <img src='$home_logo' alt='$home_name'></p>
 			<p>Home Name: $home_name</p>
 			<p>Home Goal FT: $home_goal_ft</p>
-			<p>Home Goal PT: $home_goal_pt</p>
-			<p>Away Logo: <img src='$away_logo'></p>
+			<p>Home goal HT: $home_goal_ht</p>
+			<img src='$home_logo' alt='$home_name' style='width: 50px; height: 50px;'>
+			<p>Away Name: $away_name</p>
+			<p>Away Goal FT: $away_goal_ft</p>
+			<p>Away Goal HT: $away_goal_ht</p>
+			<img src='$away_logo' alt='$away_name' style='width:50px; height: 50px;'>
 		</div>";
 
 		// Append the custom fields to the content
 		$content = $custom_fields . $content;
-
-
-
-		
         
     }
 
     return $content;
 }
 add_filter( 'the_content', 'add_custom_fields_to_matches_content' );
+// wp enqueue style for assests/css/style.css
+add_action( 'wp_enqueue_scripts', 'blanktheme_enqueue_styles' );
+function blanktheme_enqueue_styles() {
+	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/assets/js/jquery-3.7.1.min.js', array(), _S_VERSION );
+	wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/slick.css', array(), _S_VERSION );
+	wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/slick-theme.css', array(), _S_VERSION );
+	wp_enqueue_script( 'script', get_template_directory_uri() . '/assets/js/slick.min.js', array(), _S_VERSION );
+	wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/assets/js/custom-scripts.js', array(),  _S_VERSION );
+}
+# Register Footer Widget Area
+function footer_widget_init() {
+    // Register first footer widget area
+    register_sidebar( array(
+        'name'          => __( 'Footer Area One', 'blanktheme' ),
+        'id'            => 'footer-1',
+        'description'   => __( 'Add widgets here to appear in your first footer area.', 'blanktheme' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
+
+    // Register second footer widget area
+    register_sidebar( array(
+        'name'          => __( 'Footer Area Two', 'blanktheme' ),
+        'id'            => 'footer-2',
+        'description'   => __( 'Add widgets here to appear in your second footer area.', 'blanktheme' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
+}
+add_action( 'widgets_init', 'footer_widget_init' );

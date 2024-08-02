@@ -80,7 +80,19 @@ html {
 body {
 	margin: 0;
 }
-
+a{
+	text-decoration: none;
+	color: #ffff!important;
+}
+/* a:visted{
+	text-decoration: none;
+	color: rgb(255, 255, 255)!important;
+} */
+/* a:hover {
+	color: rgb(73, 51, 36)!important;
+	transition: 1s color ease-in-out;
+	/* position: relative; */
+} */
 /**
  * Render the `main` element consistently in IE.
  */
@@ -968,8 +980,27 @@ textarea {
 	margin-bottom: 1.5em;
 }
 /* Additional CSS */
+/* Logo and main navigation */
+#masthead {
+	background-color: #3237df;
+	color: white;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	padding: 0 20px;
+}
+.site-branding{
+	width:40%;
+	display: inline-block;
+}
+.site-branding a img {
+	width:40%;
+	height: auto;
+
+}
 .main-navigation {
-    background-color: #333;
+    background-color: #3237df;
     overflow: hidden;
 }
 
@@ -977,6 +1008,7 @@ textarea {
     list-style-type: none;
     margin: 0;
     padding: 0;
+	justify-content: center;
 }
 
 .main-navigation li {
@@ -992,5 +1024,359 @@ textarea {
 }
 
 .main-navigation li a:hover {
-    background-color: #111;
+    background-color: #0d2f5b;
+}
+/* slick slider styles */
+/* custom-style.css */
+
+/* Slider container */
+/* set white color for the text inside the slider */
+.match_list_container {
+	background-color: #0a0a09;
+	padding: 20px 0;
+}
+.slick-track {
+	display: flex !important;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+.slick-track >.slick-slide {
+	display: flex !important;
+	flex-direction: column;
+	background-color: #0d2f5b;
+	color: white;
+	padding: 0 20px;
+	gap: 10px;
+	height: 20vh;
+	justify-content: space-evenly;
+
+
+
+}
+/* all item of .match_end should be centered */
+/* change height for .match_end to 20% of its parent */
+.match_end {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	height: 40px;
+	align-items: center;
+	padding-right: 10px;
+}
+
+
+
+.home_info {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+    gap: 10px;
+}
+.home_goal {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+/* set width for each item inside .home_info in percent unit : 10% 70% 10% 10% */
+.home_info > .home_logo {
+	width: 20%;
+}
+.home_info > .home_name {
+	width: 60%;
+}
+.home_info > .home_goal {
+	width: 20%;
+}
+
+.away_info {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+    gap: 10px;
+}
+.away_info > .away_logo {
+	width: 20%;
+}
+.away_info > .away_name {
+	width: 60%;
+}
+.away_info > .away_goal {
+	width: 20%;
+}
+.home_info  img, .away_info img {
+	width: 30px;
+	height: 30px;
+}
+.away_goal {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+/* styling for main content */
+.site-main-content {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 20px;
+	color: white;
+	/* set color for all text including a tag to white */
+
+}
+aside {
+	width: calc(20% - 10px);
+}
+.related-post {
+	width: calc(60% - 10px);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	gap: 10px;
+
+}
+.related-post .most-top-heading h2 {
+	color: #4169e1;
+	text-decoration: underline;
+	text-decoration-color: rgb(212, 240, 87);
+	text-decoration-thickness: 10px;
+	text-underline-offset: 10px;
+
+}
+/* create a line under h2 same length as h2 text 
+   and set the color to #b7db54 */
+.top-post-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: top;
+	gap: 20px;
+}
+.left-first-post-container {
+	width: calc(67% - 10px);
+	display: flex;
+	flex-direction: column;
+	position: relative;
+
+}
+.left-first-post-container img {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.first-post-content {
+	position: absolute;
+	bottom: 0%;
+}
+.first-post {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+.first-post-content {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.first-post-content h3 {
+    margin: 10px;
+}
+
+.first-post-content p {
+    margin: 10px;
+}
+/* how to make the text inside .first-post-content fit inside the .thumbnail */
+
+.right-post-container {
+	width: calc(33% - 10px);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	background-color: #867c7c;
+	padding:10px
+}
+/* create a line under span text with offset 10px */
+/* .right-post-container span {
+	text-decoration: underline;
+	text-decoration-color: #bbadad;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 10px;
+
+} */
+/* create a underline for .right-post div same length as.right-post
+   and set the color to #b7db54 */
+
+.right-posts {
+	border-bottom: 1px solid #b9c7ce; /* Border color and thickness */
+    padding-bottom: 10px; 
+}
+.right-posts span a{
+	color: #ffff!important;
+}
+.right-posts span a:hover {
+	color: #000!important;
+	transition: 0.5s all ease-in-out;
+}
+.bottom-post-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 20px;
+	/* how to align item of .bottom-post-container to the top */
+	align-items: flex-start;
+	
+}
+/* all.bottom-posts should have same height using flexbox */
+
+.bottom-post-container .bottom-posts {
+	width: calc(33.33% - 10px);
+	height:20vh;
+	
+}
+.bottom-post  a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.bottom-posts a img {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.bottom-posts a img:hover {
+	/* zoom in the image when hover */
+
+	transform: scale(1.1);
+
+	transition: 0.5s all ease-in-out;
+}
+/*end for css main content */
+
+/* styling for footer */
+#footer-widget-area-one {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	gap: 0;
+	padding: 20px 0;
+	background-color: #aebe1b;
+	color: white;
+}
+/* set color for all text inside footer to white */
+#footer-widget-area-one .widget_block {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: start;
+	padding: 0;
+	margin:0;
+	width: calc(25%);
+}
+#footer-widget-area-one .widget_block .wp-block-group-is-layout-flex {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+    /* margin-left: 20%; */
+	/* gap: 20px; */
+}
+#footer-widget-area-one .widget_block .wp-block-group-is-layout-flex p {
+	margin:0;
+	padding: 0;
+	position: relative;
+} 
+#footer-widget-area-one .widget_block .wp-block-group-is-layout-flex p::before {
+	content:"";
+	width: 20%;
+	height: 4px;
+	background-color: #fa1212;
+	display: inline-block;
+	bottom: -20%;
+	left: 0;
+	position: absolute;
+}
+#footer-widget-area-one .widget_block .wp-block-group-is-layout-flex ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	/* set order list style to none */
+	
+}
+#footer-widget-area-one .widget_block .wp-block-group-is-layout-flex ul li {
+	margin: 10px;
+	border-bottom: 1px solid #ffff;
+    padding-bottom: 5px;
+}
+#footer-widget-area-one .widget_block .wp-block-group-is-layout-flex ul li a {
+	color: white!important;
+	/* position: relative; */
+}
+#footer-widget-area-one .widget_block .wp-block-group-is-layout-flex ul li a:hover {
+	color: rgb(73, 51, 36)!important;
+	transition: 1s color ease-in-out;
+	/* position: relative; */
+}
+#footer-widget-area-one .widget_block .wp-block-group-is-layout-flex ul li a::before {
+	content: "";
+	color: white;
+	margin-right:10px;
+	background-image: url('assets/images/right-arrow.svg');
+	background-size: cover; /* Ensure the background image covers the element */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    background-position: center; /* Center the background image */
+	display: inline-block; /* Make it inline-block to set width and height */
+    width: 12px; /* Set the desired width */
+    height: 12px; /* Set the desired height */
+    margin-right: 5px; /* Optional: Add some space between the text and the icon */
+    vertical-align: middle; /* Optional: Align the icon vertically with the text */
+	
+}
+div#footer-widget-area-two {
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	/* gap: 20px; */
+	padding: 20px 0;
+	background-color: #0a0a09;
+	color: white;
+}
+/* set color for all text inside footer to white */
+#footer-widget-area-two .widget_block {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: start;
+	padding: 0;
+	margin:0;
+	gap:0;
+	width:25%;
+}
+#footer-widget-area-two .widget_block .wp-block-group-is-layout-flex {
+	display: flex;
+	flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+	padding: 0;
+	margin-left: 20%;
+	width: 100%;
+}
+#footer-widget-area-two .widget_block .wp-block-group-is-layout-flex figure img {
+	display: inline-block;
+	top: 2px;
+    height: auto;
+    max-width: 50%;
+    vertical-align: middle;
+
+}
+.wp-block-button__link {
+	border-radius: 0;
+}
+.wp-block-button__link:hover {
+	color: #000000!important;
+	background-color: #ffff;
+	transition: 0.5s all ease-in-out;
 }
