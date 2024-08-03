@@ -180,19 +180,39 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 // Custom PHP code coded manually
 // create a custom post type called 'matches'
 function create_posttype() {
- 
-	register_post_type( 'matches',
-	// CPT Options
-		array(
-			'labels' => array(
-				'name' => __( 'Matches' ),
-				'singular_name' => __( 'Match' )
-			),
-			'public' => true,
-			'has_archive' => true,
-			'rewrite' => array('slug' => 'matches'),
-		)
+	$labels = array(
+		'name'               => _x( 'Matches', 'post type general name', 'your-textdomain' ),
+        'singular_name'      => _x( 'Match', 'post type singular name', 'your-textdomain' ),
+        'menu_name'          => _x( 'Matches', 'admin menu', 'your-textdomain' ),
+        'name_admin_bar'     => _x( 'Match', 'add new on admin bar', 'your-textdomain' ),
+        'add_new'            => _x( 'Add New', 'match', 'your-textdomain' ),
+        'add_new_item'       => __( 'Add New Match', 'your-textdomain' ),
+        'new_item'           => __( 'New Match', 'your-textdomain' ),
+        'edit_item'          => __( 'Edit Match', 'your-textdomain' ),
+        'view_item'          => __( 'View Match', 'your-textdomain' ),
+        'all_items'          => __( 'All Matches', 'your-textdomain' ),
+        'search_items'       => __( 'Search Matches', 'your-textdomain' ),
+        'parent_item_colon'  => __( 'Parent Matches:', 'your-textdomain' ),
+        'not_found'          => __( 'No matches found.', 'your-textdomain' ),
+        'not_found_in_trash' => __( 'No matches found in Trash.', 'your-textdomain' )
 	);
+	$args = array(
+		'labels' => $labels,
+		'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'matches' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => null,
+        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+	);
+	register_post_type( 'matches', $args );
+	// CPT Options
+		
 }
 // Registering your Custom Post Type
 add_action( 'init', 'create_posttype' );

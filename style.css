@@ -981,6 +981,9 @@ textarea {
 }
 /* Additional CSS */
 /* Logo and main navigation */
+#page {
+	background-color: #867c7c;
+}
 #masthead {
 	background-color: #3237df;
 	color: white;
@@ -994,8 +997,12 @@ textarea {
 	width:40%;
 	display: inline-block;
 }
+.site-branding a {
+	float: right;
+
+}
 .site-branding a img {
-	width:40%;
+	width:150px;
 	height: auto;
 
 }
@@ -1008,7 +1015,7 @@ textarea {
     list-style-type: none;
     margin: 0;
     padding: 0;
-	justify-content: center;
+	justify-content: start;
 }
 
 .main-navigation li {
@@ -1115,7 +1122,11 @@ textarea {
 	justify-content: space-around;
 }
 /* styling for main content */
-.site-main-content {
+.site-main-content{
+	display: flex;
+	flex-direction: column;
+}
+.related-post-and-sidebar {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -1253,8 +1264,12 @@ aside {
 	transition: 0.5s all ease-in-out;
 }
 /*end for css main content */
-
-/* styling for footer */
+/* Start styling for prediction */
+.match-predict-container {
+	margin:0 auto;
+	width: 80%;
+}
+/* Start styling for footer */
 #footer-widget-area-one {
 	display: flex;
 	flex-direction: row;
@@ -1374,6 +1389,7 @@ div#footer-widget-area-two {
 }
 .wp-block-button__link {
 	border-radius: 0;
+	font-size: 1rem;
 }
 .wp-block-button__link:hover {
 	color: #000000!important;

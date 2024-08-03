@@ -19,6 +19,7 @@ get_header();
 
 		</div>
 		<div class="site-main-content">
+			<div class="related-post-and-sidebar">
         <?php
         
         $args = array(
@@ -45,7 +46,11 @@ get_header();
         // Restore original Post Data
         wp_reset_postdata();
         ?>
+			</div> <!-- .related-post-and-sidebar -->
+		<div class="match-predict-container">
+			<?php include get_template_directory().'/template-parts/match-predict.php'; ?>	
 		</div>
+		</div> <!-- .site-main-content -->
     </main><!-- #main -->
 <?php
 // get_sidebar();
