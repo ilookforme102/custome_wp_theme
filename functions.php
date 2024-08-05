@@ -228,6 +228,43 @@ add_action( 'acf/include_fields', function() {
 	'title' => 'Lịch thi đấu',
 	'fields' => array(
 		array(
+			'key' => 'field_66b077c267667',
+			'label' => 'Custom Url',
+			'name' => 'custom_url',
+			'aria-label' => '',
+			'type' => 'url',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+		),
+		array(
+			'key' => 'field_66b078129e6e9',
+			'label' => 'Match ID',
+			'name' => 'match_id',
+			'aria-label' => '',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'maxlength' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+		),
+		array(
 			'key' => 'field_66a85276b18db',
 			'label' => 'End Date',
 			'name' => 'end_date',
@@ -414,7 +451,7 @@ add_action( 'acf/include_fields', function() {
 			'placeholder' => '',
 			'prepend' => '',
 			'append' => '',
-		),
+		)
 	),
 	'location' => array(
 		array(

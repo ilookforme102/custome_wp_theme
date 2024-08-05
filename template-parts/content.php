@@ -29,7 +29,7 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php blanktheme_post_thumbnail(); ?>
+	<?php //blanktheme_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php
@@ -55,6 +55,36 @@
 			)
 		);
 		?>
+		<?php
+		// if matches post type, display the match prediction
+		if ( 'matches' === get_post_type()):
+			include get_template_directory().'/components/match-detail.php';
+			include get_template_directory().'/components/match-statistics.php';
+			?>
+			<div class="tabs all-tabs-container">
+				<div class="tab-links-container">
+					<ul class="tab-links">
+						<li class="active"><a href="#statistics-home-away">Thống kê trận đấu</a></li>
+						<li><a href="#matchH2H-home-away">Thông số đối đầu</a></li>
+						<li><a href="#lineup-home-away">Đội hình ra sân</a></li>
+					</ul>
+				</div>
+				<div class="tab-content content-container">
+					<div id="stats-home-away" class="tab active">
+						<?php include get_template_directory().'/components/match-statistics.php'; ?>
+					</div>
+					<div id="matchH2H-home-away" class="tab">
+						<?php include get_template_directory().'/components/match-h2h.php'; ?>
+					</div>
+					<div id="lineup-home-away" class="tab">
+						<?php include get_template_directory().'/components/match-lineup.php'; ?>
+					</div>
+				</div>
+			</div>
+	<?php
+		endif;
+		?>
+	    
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">

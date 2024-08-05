@@ -44,17 +44,32 @@ jQuery(document).ready(function($) {
               slidesToScroll: 2,
               infinite: true,
               dots: false,
-              arrows: true
+              arrows: false
             }
           },
           {
             breakpoint: 600,
             settings: {
-              slidesToShow: 1,
+              slidesToShow: 3,
               slidesToScroll: 1,
-              arrows: true
+              arrows: false
             }
           }
         ],
       })
 });
+jQuery(document).ready(function($) {
+  $('.tab-links a').on('click', function(e) {
+      var currentAttrValue = $(this).attr('href');
+
+      // Show/Hide Tabs
+      $('.tab' + currentAttrValue).addClass('active').siblings().removeClass('active');
+
+      // Change/remove current tab to active
+      $(this).parent('li').addClass('active').siblings().removeClass('active');
+
+      e.preventDefault();
+  }
+  );
+}
+);

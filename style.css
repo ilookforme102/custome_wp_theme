@@ -91,8 +91,8 @@ a{
 /* a:hover {
 	color: rgb(73, 51, 36)!important;
 	transition: 1s color ease-in-out;
-	/* position: relative; */
-} */
+	position: relative;
+}  */
 /**
  * Render the `main` element consistently in IE.
  */
@@ -982,7 +982,7 @@ textarea {
 /* Additional CSS */
 /* Logo and main navigation */
 #page {
-	background-color: #867c7c;
+	background-color: rgb(0 0 0);
 }
 #masthead {
 	background-color: #3237df;
@@ -1042,14 +1042,14 @@ textarea {
 	background-color: #0a0a09;
 	padding: 20px 0;
 }
-.slick-track {
+.match_list_container .match_list .slick-track {
 	display: flex !important;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     gap: 10px;
 }
-.slick-track >.slick-slide {
+.match_list_container .match_list .slick-track >.slick-slide {
 	display: flex !important;
 	flex-direction: column;
 	background-color: #0d2f5b;
@@ -1130,23 +1130,48 @@ textarea {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	gap: 20px;
+	gap: 0;
 	color: white;
 	/* set color for all text including a tag to white */
 
 }
 aside {
-	width: calc(20% - 10px);
-}
-.related-post {
-	width: calc(60% - 10px);
+	width: calc(20% - 0px);
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
-	gap: 10px;
+	justify-content: start;
+	align-items: start;
 
 }
-.related-post .most-top-heading h2 {
+aside section.widget_block div.wp-block-group div.wp-block-group-is-layout-flow {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	gap:20px
+}
+/* .widget_block .wp-block-group .wp-block-group-is-layout-flow {} */
+.widget_block .wp-block-group .wp-block-group-is-layout-flow ul,
+.widget_block .wp-block-group .wp-block-group-is-layout-flow h2.wp-block-heading 
+{
+	padding: 0;
+	margin-left: 20px;
+}
+.widget_block .wp-block-group .wp-block-group-is-layout-flow h2.wp-block-heading {
+	color: #4169e1;
+    text-decoration: underline;
+    text-decoration-color: rgb(212, 240, 87);
+    text-decoration-thickness: 10px;
+    text-underline-offset: 10px;
+}
+.related-post {
+	width: calc(60% - 0px);
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	gap: 20px;
+
+}
+ .most-top-heading h2 {
 	color: #4169e1;
 	text-decoration: underline;
 	text-decoration-color: rgb(212, 240, 87);
@@ -1206,7 +1231,7 @@ aside {
 	flex-direction: column;
 	justify-content: space-around;
 	background-color: #867c7c;
-	padding:10px
+	padding:10px 10px;
 }
 /* create a line under span text with offset 10px */
 /* .right-post-container span {
@@ -1222,6 +1247,16 @@ aside {
 .right-posts {
 	border-bottom: 1px solid #b9c7ce; /* Border color and thickness */
     padding-bottom: 10px; 
+	position: relative;
+}
+.right-posts::before {
+	content: "";
+    position: absolute;
+    height: 100%;
+    width: 5px;
+    background-color: #d6ec71;
+    /* bottom: 25%; */
+    left: -10px;
 }
 .right-posts span a{
 	color: #ffff!important;
@@ -1268,7 +1303,61 @@ aside {
 .match-predict-container {
 	margin:0 auto;
 	width: 80%;
+	/* background-color: #e0d787!important; */
 }
+.match-predict {
+	display: flex;
+	width: 75%;
+	flex-direction: column;
+	/* justify-content: space-around; */
+	/* align-items: center; */
+	gap: 20px;
+}
+.top-predict-container {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+.top-predict-container img {
+	border-bottom: 10px solid #0d2f5b;
+}
+.top-predict-container .first-predict-content {
+	position: absolute;
+	width: 100%;
+	box-sizing: border-box;
+	bottom: 0%;
+	padding: 2%
+}
+.bottom-predict-container {
+	width: 100%;
+	
+}
+.bottom-predict-container .slick-track {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: start;
+	gap: 20px;
+	width: 100%;
+	height: 100%;
+}
+.bottom-predict-container .slick-track .bottom-predict-match {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: start;
+	height: 250px;
+	
+	
+}
+.bottom-predict-container .slick-track .bottom-predict-match img {
+	width: 100%;
+	height: 100%;
+}
+.bottom-predict-match img {
+	width:100%
+}
+
 /* Start styling for footer */
 #footer-widget-area-one {
 	display: flex;
