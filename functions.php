@@ -479,6 +479,7 @@ function add_custom_fields_to_matches_content( $content ) {
         
         // Retrieve custom fields
         $end_date = get_post_meta( $post->ID, 'end_date', true );
+		$end_date = date('d/m/Y', strtotime($end_date));
         $home_name = get_post_meta( $post->ID, 'home_name', true );
         $home_goal_ft = get_post_meta( $post->ID, 'home_goal_ft', true );
         $home_goal_ht = get_post_meta( $post->ID, 'home_goal_ht', true );
@@ -490,17 +491,38 @@ function add_custom_fields_to_matches_content( $content ) {
 
         // Format the custom fields
         $custom_fields = 
-		"<div class='match-info'>
-			<p>End Date: $end_date</p>
-			<p>Home Name: $home_name</p>
-			<p>Home Goal FT: $home_goal_ft</p>
-			<p>Home goal HT: $home_goal_ht</p>
-			<img src='$home_logo' alt='$home_name' style='width: 50px; height: 50px;'>
-			<p>Away Name: $away_name</p>
-			<p>Away Goal FT: $away_goal_ft</p>
-			<p>Away Goal HT: $away_goal_ht</p>
-			<img src='$away_logo' alt='$away_name' style='width:50px; height: 50px;'>
-		</div>";
+		"<div class='match-info'>"
+		."<div class='home-info'>"
+			."<img src='$home_logo' alt=''>"
+			."<h3>$home_name</h3>"
+			."<div class='home-goal'>"
+				."<div class='home-goal-ft'>"
+					."<span>$home_goal_ft</span>"
+				."</div>"
+				."<div class='home-goal-ht'>"
+					."<span>($home_goal_ht)</span>"
+				."</div>"
+			."</div>"
+		."</div>"
+		."<div class='match-info-header-center'>"
+			."<p class='match_end-time'>Kết thúc</p>"
+			."<p class='match_end_time-text'>$end_date</p>"
+		."</div>"
+		."<div class='away-info'>"
+			."<div class='away-goal'>"
+				."<div class='away-goal-ft'>"
+					."<span>$away_goal_ft</span>"
+				."</div>"
+				."<div class='away-goal-ht'>"
+					."<span>($away_goal_ht)</span>"
+				."</div>"
+			."</div>"
+			."<h3>$away_name</h3>"
+			."<img src='$away_logo' alt=''>"
+		."</div>"
+		."</div>";
+
+    
 
 		// Append the custom fields to the content
 		$content = $custom_fields . $content;

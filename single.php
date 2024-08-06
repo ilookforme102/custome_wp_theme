@@ -9,7 +9,7 @@
 
 get_header();
 ?>
-
+	<div class="main-content-sidebar-container">
 	<main id="primary" class="site-main">
 
 		<?php
@@ -29,12 +29,13 @@ get_header();
 			if ( comments_open() || get_comments_number() ) :
 				comments_template();
 			endif;
-
+			
 		endwhile; // End of the loop.
 		?>
 
 	</main><!-- #main -->
-
+	<?php get_sidebar(); ?>
+	</div> <!-- .main-content-sidebar-container -->
 <?php
-get_sidebar();
+// get_sidebar();
 get_footer();

@@ -59,17 +59,10 @@ jQuery(document).ready(function($) {
       })
 });
 jQuery(document).ready(function($) {
-  $('.tab-links a').on('click', function(e) {
-      var currentAttrValue = $(this).attr('href');
-
-      // Show/Hide Tabs
-      $('.tab' + currentAttrValue).addClass('active').siblings().removeClass('active');
-
+  $('.tab-linkss li').on('click', function() {
+      var tab_id = $(this).data('tab');
+      $('#' + tab_id).addClass('actives').siblings().removeClass('actives');
       // Change/remove current tab to active
-      $(this).parent('li').addClass('active').siblings().removeClass('active');
-
-      e.preventDefault();
-  }
-  );
-}
-);
+      $(this).addClass('actives').siblings().removeClass('actives');
+  });
+});

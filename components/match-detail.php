@@ -1,20 +1,20 @@
 <?php
 // get match detail by send post request to https://api.tysobongda.org/matchDetail
 // and display the match detail
-// get the match id from the url
-$match_id = get_field( 'match_id' );
-// send post request to the api
-$match_detail_response = wp_remote_post( 'https://api.tysobongda.org/matchDetail', array(
-    'body' => json_encode( array( 'id' => $match_id ) ),
-    'headers' => array(
-        'Content-Type' => 'application/json',
-    ),
-) );
-// get the response from the api
-$match_detail = json_decode( wp_remote_retrieve_body( $match_detail_response ) );
-// display the match detail
-date_default_timezone_set('Asia/Bangkok'); // GMT+7 timezone
-$root_domain_str = "https://img.thesports.com";
+// // get the match id from the url
+// $match_id = get_field( 'match_id' );
+// // send post request to the api
+// $match_detail_response = wp_remote_post( 'https://api.tysobongda.org/matchDetail', array(
+//     'body' => json_encode( array( 'id' => $match_id ) ),
+//     'headers' => array(
+//         'Content-Type' => 'application/json',
+//     ),
+// ) );
+// // get the response from the api
+// $match_detail = json_decode( wp_remote_retrieve_body( $match_detail_response ) );
+// // display the match detail
+// date_default_timezone_set('Asia/Bangkok'); // GMT+7 timezone
+// $root_domain_str = "https://img.thesports.com";
 
 // Convert Unix timestamp to date and time format
 if ( $match_detail ) :
