@@ -16,6 +16,7 @@ if($match_h2h):
                     'match_time' => $h2h_matche->match_time,
                     'match_time_str' => date('Y-m-d', $h2h_matche->match_time),
                     'league' => $h2h_league_matches->competition_name,
+                    'league_logo' => $root_domain_str . $h2h_league_matches->competition_logo,
                 ];
             endforeach;
         endforeach;
@@ -56,6 +57,7 @@ if($match_h2h):
         ?>
         <!-- <div> -->
             <div class="h2h-container">
+                
                 <div class="h2h-content-header">
                     <div class="h2h-content-header-left">
                         <img src="<?php echo $home_team_logo; ?>" alt="">
@@ -86,6 +88,7 @@ if($match_h2h):
                                 <p> <?php echo $h2h_match['match_time_str']; ?> </p>
                             </div>
                             <div class="h2h-content-footer-body-center">
+                                <img src="<?php echo $h2h_match['league_logo']; ?>" alt="">
                                 <p> <?php echo $h2h_match['league']; ?> </p>
                             </div>
                             <div class="h2h-content-footer-body-right">

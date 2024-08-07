@@ -41,8 +41,8 @@ if ( $matches->have_posts() ) :
                 if ( $matches->current_post > 0 ) {
                     ?>
                 <div class="bottom-predict-match">
-                    <img src="<?php the_post_thumbnail_url(); ?>" alt="">
-
+                    
+                    <a href="<?php the_permalink(); ?>"><img src="<?php the_post_thumbnail_url(); ?>" alt=""></a>
                     <div class="bottom-predict-content">
                         <a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
                     </div>

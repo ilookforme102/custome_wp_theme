@@ -1136,6 +1136,14 @@ textarea {
 	/* set color for all text including a tag to white */
 
 }
+.related-post-and-predict {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 0;
+	color: white;
+	/* set color for all text including a tag to white */
+}
 aside {
 	width: calc(20% - 0px);
 	display: flex;
@@ -1347,16 +1355,25 @@ aside section.widget_block div.wp-block-group div.wp-block-group-is-layout-flow 
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: start;
-	height: 250px;
+	width: 250px!important;
+	height: 250px!important;
+	overflow: hidden;
 	
 	
 }
-.bottom-predict-container .slick-track .bottom-predict-match img {
+.bottom-predict-container .slick-track .bottom-predict-match .bottom-predict-content {
+	width: 100%;
+	height: 50px;
+}
+.bottom-predict-container .slick-track .bottom-predict-match a {
+	height: 100%;
+	width: 100%;
+}
+.bottom-predict-container .slick-track .bottom-predict-match a img {
 	width: 100%;
 	height: 100%;
-}
-.bottom-predict-match img {
-	width:100%
+	object-fit: cover; /* Ensures the image covers the container */
+	display: block;
 }
 
 /* Start styling for footer */
@@ -1522,7 +1539,8 @@ main#primary article {
 	flex-direction: column;
 	justify-content: start;
 	align-items: center;
-	width:100%
+	width:100%;
+	gap:20px
 }
 .match-info {
 	display: flex;
@@ -1595,3 +1613,292 @@ main#primary article {
 	width: 100px;
 	height: 100px;
 } */
+/* end styling for match detail */
+/*///////////////////////////*/
+/* styling for tabs */
+.tabss {
+    width: 100%;
+	display: flex;
+    flex-direction: column;
+}
+.tab-linkss {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+}
+
+.tab-linkss li {
+    margin: 0;
+    padding: 10px 20px;
+    background: #f1f1f1;
+    cursor: pointer;
+	font-weight: bold;
+}
+
+.tab-linkss li.actives {
+    background: #8585e3;
+}
+.tab-contents {
+	display: flex;
+	flex-direction: column;
+	width:100%;
+	
+}
+.tab-contents > div {
+	flex-grow: 1;
+}
+.tab-contents .tabs {
+    display: none;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+.tab-contents .tabs.actives {
+    display: block;
+}
+/* end styling for tabs */
+/* start styling for tab content */
+/* statistic tab */
+.first-row-stats {
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+.first-row-stats > div {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.first-row-stats > div  >div {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap:10px
+}
+.first-row-stats > div  >div img {
+	width: 50px;
+	height: 50px;
+}
+.first-row-stats >div> div:nth-child(2) {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.first-row-stats >div> div:nth-child(2) span {
+	font-weight: bold;
+}
+.home-red {
+	color: red;
+	font-weight: bold;
+}
+.home-blue {
+	color: blue;
+	font-weight:bold
+}
+.second-row-stats {
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 10%;
+    padding: 20px;
+}
+.second-row-stats > div {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.second-row-stats > div  >div {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap:10px
+}
+.second-row-stats > div  >div img {
+	width: 50px;
+	height: 50px;
+}
+.second-row-stats >div> div:nth-child(2) {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.second-row-stats >div> div:nth-child(2) span {
+	font-weight: bold;
+}
+/* end styling for tab content */
+.other-stats-rows {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: start;
+	width: 100%;
+}
+.other-stats-rows > div {
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+.other-stats-rows > div > div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	gap: 10px;
+}
+.other-stats-rows > div> div:nth-child(1) p {
+	font-weight: bold;
+}
+.other-stats-rows > div> div:nth-child(2) > .progress-bar {
+	height: 10px;
+}
+.other-stats-rows > div> div:nth-child(2) .progress-bar-home {
+	background-color: #f73224;
+}
+.other-stats-rows > div> div:nth-child(2) .progress-bar-away {
+	background-color: #1e90ff;
+}
+/* h2h tab */
+
+.h2h-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: start;
+	width: 100%;
+	gap:20px
+}
+.h2h-container div {
+	flex:1;
+	overflow: hidden;
+}
+.h2h-container .h2h-content-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+.h2h-content-header-left {
+	flex:1;
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	align-items: center;
+}
+.h2h-content-header-right {
+	flex:1;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: end;
+	align-items: center;
+}
+.h2h-content-header-left img,.h2h-content-header-right img {
+	width: 40px;
+	height: 40px;
+}
+.h2h-header-home-content, .h2h-header-away-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.h2h-container p {
+	font-weight: bold;
+	margin:0;
+	padding:0
+}
+.h2h-content-footer {
+	width: 100%;
+	display: block;
+}
+.h2h-content-footer-body {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+.h2h-content-footer-body-center {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	gap:10px
+}
+.h2h-content-footer-body-center img {
+	width: 20px;
+	height: 20px;
+}
+.all-prediction-container {
+	display: block;
+	width: 100%;
+}
+.all-analysis-container {
+	display:flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: start;
+	gap:20px;
+	width: 100%;
+}
+.all-analysis-container > div{
+	width: calc(50% - 10px);
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: start;
+
+}
+.all-analysis-container > div > div {
+	display: block;
+	width:100%;
+}
+
+.all-analysis-container > div > div > div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+
+}
+.progress-bar-container {
+	width: 100%;
+}
+.progress-bar-container .pred-progress-container {
+	display: flex;
+	flex-direction: row;
+}
+.pred-progress-container {
+	height: 10px;
+	width: 100%;
+}
+.goal-score-predict > div >  div:nth-child(2) {
+	gap:10px
+}
+
+.pred-progress-container > div:first-child {
+	background-color: #1e90ff;
+	height: 100%;
+}
+.pred-progress-container > div:nth-child(2) {
+	background-color: #7e7e7e;
+	height: 100%;
+
+}

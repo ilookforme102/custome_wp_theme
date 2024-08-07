@@ -57,7 +57,6 @@ date_default_timezone_set('Asia/Bangkok'); // GMT+7 timezone
 $root_domain_str = "https://img.thesports.com";
 ?>
 <?php include get_template_directory().'/components/match-detail.php'; ?>
-
 <div class="tabss">
     <ul class="tab-linkss">
         <li class="actives" data-tab="statistics-tab">Thống kê trận đấu</li>

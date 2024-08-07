@@ -66,42 +66,7 @@
 		?>
 	</div>
 	<!-- .entry-content -->
-<style>
-.tabss {
-    width: 100%;
-    display: block;
-}
-.tab-linkss {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-}
-
-.tab-linkss li {
-    margin: 0;
-    padding: 10px 20px;
-    background: #f1f1f1;
-    cursor: pointer;
-}
-
-.tab-linkss li.actives {
-    background: #e1e1e1;
-}
-
-.tab-contents .tabs {
-    display: none;
-    padding: 20px;
-    background: #fff;
-    border: 1px solid #ddd;
-}
-
-.tab-contents .tabs.actives {
-    display: block;
-}
- 
-</style>
 	<footer class="entry-footer">
 		<?php blanktheme_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
-</article>post<?php the_ID(); ?> 
+</article><?php //the_ID(); ?> 
