@@ -202,8 +202,11 @@ function create_posttype() {
         'publicly_queryable' => true,
         'show_ui'            => true,
         'show_in_menu'       => true,
-        'query_var'          => true,
-        'rewrite'            => array( 'slug' => 'matches' ),
+        'rewrite'            => array(
+            'slug'       => '/', // Empty slug to remove the post type slug
+            'with_front' => false
+        ),//array( 'slug' => 'matches' ),
+		'query_var'             => true,
         'capability_type'    => 'post',
         'has_archive'        => true,
         'hierarchical'       => false,
@@ -228,11 +231,11 @@ add_action( 'acf/include_fields', function() {
 	'title' => 'Lịch thi đấu',
 	'fields' => array(
 		array(
-			'key' => 'field_66b077c267667',
+			'key' => 'field_66b5b30d21aec',
 			'label' => 'Custom Url',
 			'name' => 'custom_url',
 			'aria-label' => '',
-			'type' => 'url',
+			'type' => 'text',
 			'instructions' => '',
 			'required' => 0,
 			'conditional_logic' => 0,
@@ -242,7 +245,10 @@ add_action( 'acf/include_fields', function() {
 				'id' => '',
 			),
 			'default_value' => '',
+			'maxlength' => '',
 			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
 		),
 		array(
 			'key' => 'field_66b078129e6e9',
@@ -566,3 +572,81 @@ function footer_widget_init() {
     ) );
 }
 add_action( 'widgets_init', 'footer_widget_init' );
+// Custom rewrite rules
+// function matches_rewrite_rules() {
+//     add_rewrite_rule(
+//         '^([^/]+)?$',
+//         'index.php?matches=$matches',
+//         'top'
+//     );
+// }
+// add_action( 'init', 'matches_rewrite_rules' );
+
+// Add custom URL field to the 'matches' custom post type
+function set_custom_permalink_from_acf_field( $data, $postarr ) {
+    // Only apply to specific post types, e.g., 'post'. Adjust as needed.
+    if ( 'matches' === $data['post_type'] ) {
+
+        // Get the ACF field value
+        $custom_slug = get_field('custom_url', $postarr['ID']);
+
+        // If the ACF field has a value, use it as the slug
+        if ( !empty($custom_slug) ) {
+            $data['post_name'] = sanitize_title($custom_slug);
+        }
+    }
+
+    return $data;
+}
+add_filter( 'wp_insert_post_data', 'set_custom_permalink_from_acf_field', 10, 2 );
+// add_action( 'init', 'flush_rewrite_rules' );
+function matches_pre_get_posts( $query ) {
+    // Check if the query is the main query and not in admin
+    if ( ! is_admin() && $query->is_main_query() ) {
+        if ( ! empty( $query->query['name'] ) && ! isset( $query->query['post_type'] ) ) {
+            $query->set( 'post_type', array( 'post', 'page', 'matches' ) );
+        }
+    }
+}
+add_action( 'pre_get_posts', 'matches_pre_get_posts' );
+// Set default post thumbnail
+function set_default_thumbnail($html, $post_id, $post_thumbnail_id, $size, $attr) {
+    $post_type = get_post_type($post_id);
+    
+    // Only apply to specific post types, e.g., 'post', 'matches'
+    if (empty($html) && in_array($post_type, array('post', 'matches'))) {
+        $default_thumbnail_url = get_template_directory_uri() . '/images/default-thumbnail.jpg';
+        $html = '<img src="' . $default_thumbnail_url . '" alt="' . get_the_title($post_id) . '" class="wp-post-image" />';
+    }
+
+    return $html;
+}
+add_filter('post_thumbnail_html', 'set_default_thumbnail', 10, 5);
+
+// echo  get_stylesheet_directory_uri();
+function create_shortcode_replay(){
+    ob_start();
+    get_template_part('template-parts/replay-page');
+	$ob = ob_get_contents();
+	ob_end_clean();
+	return $ob;
+}
+add_shortcode('replay', 'create_shortcode_replay');
+function convertUrl($str){
+    $str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", "a", $str);
+    $str = preg_replace("/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/", "e", $str);
+    $str = preg_replace("/(ì|í|ị|ỉ|ĩ)/", "i", $str);
+    $str = preg_replace("/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/", "o", $str);
+    $str = preg_replace("/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/", "u", $str);
+    $str = preg_replace("/(ỳ|ý|ỵ|ỷ|ỹ)/", "y", $str);
+    $str = preg_replace("/(đ)/", "d", $str);
+    $str = preg_replace("/(À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ)/", "A", $str);
+    $str = preg_replace("/(È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ)/", "E", $str);
+    $str = preg_replace("/(Ì|Í|Ị|Ỉ|Ĩ)/", "I", $str);
+    $str = preg_replace("/(Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ)/", "O", $str);
+    $str = preg_replace("/(Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ)/", "U", $str);
+    $str = preg_replace("/(Ỳ|Ý|Ỵ|Ỷ|Ỹ)/", "Y", $str);
+    $str = preg_replace("/(Đ)/", "D", $str);
+    $str = str_replace(' ','-',$str);
+    return strtolower($str);
+}

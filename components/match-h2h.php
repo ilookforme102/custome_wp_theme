@@ -1,5 +1,6 @@
 <?php
 if($match_h2h):
+    // echo $match_h2h->h2h;
     if($match_h2h->h2h):
         $all_h2h_matches  = [];
         foreach($match_h2h->h2h as $h2h_league_matches):
@@ -110,7 +111,17 @@ if($match_h2h):
             </div>    
         <!-- </div> -->
         <?php
+    else:
+        ?>
+            <p>Không có thông tin đối đầu</p>
+        <?php
     endif;
+else:
+    ?>
+    <div class="h2h-container">
+        <p>Không có thông tin đối đầu</p>
+    </div>
+    <?php
 endif;
 ?>
 

@@ -23,8 +23,8 @@ if ( $matches->have_posts() ) :
                 $matches->the_post();
                 if ( $matches->current_post == 0 ) {
                     ?>
-                    <img src="<?php the_post_thumbnail_url(); ?>" alt="">
-
+                    
+                    <a href="<?php the_permalink(); ?>"><img src="<?php the_post_thumbnail_url(); ?>" alt=""></a>
                     <div class="first-predict-content">
                         <a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
                     </div>

@@ -1,4 +1,8 @@
 <?php
+// $post_id = get_the_ID();
+// $custom_url = get_field( 'custom_url' );
+// $post_url = $custom_url ? esc_url($custom_url) : get_permalink($post_id);
+
 $match_id = get_field( 'match_id' );
 // send post request to the api
 // data for statistics
@@ -76,4 +80,4 @@ $root_domain_str = "https://img.thesports.com";
         </div>
     </div>
 </div>
-<?php include get_template_directory().'/components/match-prediction.php'; ?>
+<?php //include get_template_directory().'/components/match-prediction.php'; ?>

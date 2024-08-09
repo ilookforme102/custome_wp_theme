@@ -44,12 +44,10 @@ get_header();
 		endif;
 
         // Restore original Post Data
-        wp_reset_postdata();
+        // wp_reset_postdata();
         ?>
 			</div> <!-- .related-post-and-sidebar -->
-		<div class="match-predict-container">
-			<?php include get_template_directory().'/components/match-predict.php'; ?>	
-		</div>
+		
 		</div> <!-- .site-main-content -->
     </main><!-- #main -->
 <?php

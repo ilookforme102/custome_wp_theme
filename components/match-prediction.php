@@ -174,7 +174,13 @@ if($match_predict):
     <?php
 else:
     ?> 
-    <p>Hiện tại chưa có thông tin </p>
+    <div class="all-prediction-container">
+        <div class="most-top-heading">
+            <h2> Dự đoán bàn thắng từ AI </h2>
+        </div>
+        <p>Hiện tại chưa có thông tin </p>
+    </div>
+    
 <?php
 endif;
 ?>

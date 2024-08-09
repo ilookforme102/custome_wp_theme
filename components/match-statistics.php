@@ -13,7 +13,7 @@
 // // get the response from the api
 // $match_stats = json_decode( wp_remote_retrieve_body( $match_statistics_response ) );
 
-if ( $match_stats ) :
+if ( $match_stats->result ) :
     ?>
     <div class="stats-home-away">
         <!-- <div class="most-top-heading">

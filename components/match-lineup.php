@@ -1,3 +1,3 @@
 <div class="lineup-container">
-    <p>Hiện tại chưa có thông tin </p>
+    <p>Đang cập nhật...</p>
 </div>

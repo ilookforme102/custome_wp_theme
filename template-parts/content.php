@@ -65,6 +65,7 @@
 		endif;
 		?>
 	</div>
+	
 	<!-- .entry-content -->
 	<footer class="entry-footer">
 		<?php blanktheme_entry_footer(); ?>

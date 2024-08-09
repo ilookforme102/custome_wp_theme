@@ -17,7 +17,8 @@
 // $root_domain_str = "https://img.thesports.com";
 
 // Convert Unix timestamp to date and time format
-if ( $match_detail ) :
+// check if
+if ( $match_detail->result ) :
     $league = $match_detail->result->competition_name;
     $home_team = $match_detail->result->home_name;
     $away_team = $match_detail->result->away_name;

@@ -8,6 +8,7 @@
 			/* Start the Loop */
 			?>
 			<div class="related-post">
+			<div class="related-post-block">
 			<div class= "most-top-heading"> 
 				<h2>Tin mới nhất</h2>
 			</div>
@@ -19,11 +20,12 @@
 					$query->the_post();
 					if ( $query->current_post == 0 ) {
 						?>
-						<img src="<?php the_post_thumbnail_url(); ?>" alt="">
+						
+						<a href="<?php the_permalink(); ?>"><img src="<?php the_post_thumbnail_url(); ?>" alt=""></a>
 
 						<div class="first-post-content">
 							<a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
-							<p><?php echo wp_trim_words( get_the_content(), 40, '...' ); ?></p>
+							<p><?php echo wp_trim_words( get_the_content(), 20, '...' ); ?></p>
 						</div>
 						<?php
 					}
@@ -64,6 +66,13 @@
 					}
 				endwhile;
 			?>
+			</div>
+			</div>
+			<div class="standing-table-container">
+				<?php include get_template_directory().'/components/standing-table.php'; ?>
+			</div>
+			<div class="match-predict-container">
+				<?php include get_template_directory().'/components/match-predict.php'; ?>	
 			</div>
 			</div>
 			

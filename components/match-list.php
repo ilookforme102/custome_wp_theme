@@ -24,8 +24,11 @@ if ( $matches->have_posts() ) :
             $away_logo = get_field( 'away_logo' );
             $away_name = get_field( 'away_name' );
             $end_date = get_field( 'end_date' );
+            $matches_url = get_permalink();
             ?>
+            
             <div class="match">
+                <a href="<?php echo $matches_url; ?>">
                 <div class="match_end">
                     <p>Kết thúc</p>
                     <p class="match_end_text"><?php echo date( 'd/m', strtotime( $end_date ) ); ?></p>
@@ -62,7 +65,9 @@ if ( $matches->have_posts() ) :
                         </div>
                     </div>
                 </div>
+                </a>
             </div>
+            <!-- </a> -->
 <?php endwhile; ?>
 </div>
 <?php

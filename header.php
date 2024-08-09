@@ -45,7 +45,7 @@
 			<?php endif; ?>
 		</div><!-- .site-branding -->
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'blanktheme' ); ?></button>
+			<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php //esc_html_e( 'Primary Menu', 'blanktheme' ); ?>☰</button> -->
 			<?php
 			wp_nav_menu(
 				array(
@@ -55,6 +55,25 @@
 			);
 			?>
 		</nav><!-- #site-navigation -->
-		
 
 	</header><!-- #masthead -->
+	<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php //esc_html_e( 'Primary Menu', 'blanktheme' ); ?>☰</button>
+
+<!-- </div> -->
+<div class="coblog-close-canvas">
+
+</div>
+<div class="coblog-offcanvas-wrap">
+	<?php
+	the_custom_logo();
+	wp_nav_menu(
+		array(
+			'theme_location' => 'menu-1',
+			'menu_id'        => 'primary-menu',
+		)
+	);
+	?>
+</div>
+<style>
+
+</style>
