@@ -41,15 +41,15 @@ get_header();
                 // Restore original Post Data
                 // wp_reset_postdata();
                     ?>
-             <div class='editor-content'>
+             <!-- <div class='editor-content'> -->
             <?php
-            if ( have_posts() ) :
-                while ( have_posts() ) : the_post();
-                    the_content(); // Outputs the content of the current page or post
-                endwhile;
-            endif;
+            // if ( have_posts() ) :
+            //     while ( have_posts() ) : the_post();
+            //         the_content(); // Outputs the content of the current page or post
+            //     endwhile;
+            // endif;
             ?>
-            </div>
+            <!-- </div> -->
 			</div> <!-- .related-post-and-sidebar -->
             
             

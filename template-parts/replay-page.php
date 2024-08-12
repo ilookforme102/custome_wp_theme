@@ -76,11 +76,11 @@ $matches = json_decode($response);
     if(isset($path[3]) && !empty($path[3])){
         
         
-        $string = explode('-',$path[2]);
+        $string = explode('-',$path[3]);
         $streamer_id = end($string);
         $match_id = $string[count($string)-2];
         
-        
+        echo $match_id;
          foreach($matches->value->result as $i=>$match){
             if($match->match_id == $match_id) $current_match = $matches->value->result[$i];
         }
@@ -121,7 +121,7 @@ $matches = json_decode($response);
          foreach($matches->value->result as $match){
            // echo $match->home_team_logo;
          ?>
-            <a class="replayItem" href="<?php echo get_permalink().convertUrl($match->home_team_name).'-'.convertUrl($match->away_team_name).'-'. $match->match_id.'-'.$match->streamer_id ?>/">
+            <a class="replayItem" href="<?php echo get_permalink().'xem-lai-tran-dau/'.convertUrl($match->home_team_name).'-'.convertUrl($match->away_team_name).'-'. $match->match_id.'-'.$match->streamer_id ?>/">
                     <div class="matchTime"><?php echo date("d/m/Y H:i:s",$match->match_time) ?></div>
                     <div class="teamA">
                         <img width="45" height="45" src="<?php echo $match->home_team_logo ?>">
