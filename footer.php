@@ -27,15 +27,25 @@
 		</div><!-- .site-info -->
 		<div class="footer-widget">
 			<?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
-				<div id="footer-widget-area-one" class="widget-area">
-					<?php dynamic_sidebar( 'footer-1' ); ?>
-				</div><!-- #footer-widget-area-one -->
+			<div class="footer-one-container container">
+				<div class="row">
+					<div id="footer-widget-area-one" class="widget-area">
+						<?php dynamic_sidebar( 'footer-1' ); ?>
+					</div><!-- #footer-widget-area-one -->
+				</div>
+			</div>
+				
 			<?php endif; ?>
 
 			<?php if ( is_active_sidebar( 'footer-2' ) ) : ?>
-				<div id="footer-widget-area-two" class="widget-area">
-					<?php dynamic_sidebar( 'footer-2' ); ?>
+				<div class="footer-two-container container">
+					<div class="row">
+						<div id="footer-widget-area-two" class="widget-area">
+							<?php dynamic_sidebar( 'footer-2' ); ?>
+						</div>
+					</div>	
 				</div><!-- #footer-widget-area-two -->
+
 			<?php endif; ?>
 		</div>
 	</footer><!-- #colophon -->

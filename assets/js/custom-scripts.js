@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
     $('.match_list').slick({
-        slidesToShow: 4,
+        slidesToShow: 6,
         slidesToScroll:2 ,
         autoplay: false,
         autoplaySpeed: 20000,

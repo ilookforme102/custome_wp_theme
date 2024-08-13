@@ -14,7 +14,7 @@ get_header();
 			<?php include get_template_directory().'/components/match-list.php'; ?>
 		</div>
 		<div class="site-main-content">
-			<div class="related-post-and-sidebar">
+			<div class="related-post-and-sidebar container">
                 <?php
         
                 $args = array(
