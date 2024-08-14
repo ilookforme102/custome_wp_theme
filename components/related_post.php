@@ -60,7 +60,9 @@
 						<div class="bottom-posts">
 							
 							<a href="<?php the_permalink(); ?>"><img src="<?php the_post_thumbnail_url(); ?>" alt=""></a>
-							
+							<div class="bottom-post-content">
+								<a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
+							</div>
 						</div>
 						<?php
 					}

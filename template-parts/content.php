@@ -18,15 +18,17 @@
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
 
-		if ( 'matches' === get_post_type() || 'post' === get_post_type() ) :
+		//if ( 'matches' === get_post_type() || 'post' === get_post_type() ) :
 			?>
 			<div class="entry-meta">
 				<?php
-				// blanktheme_posted_on();
-				// blanktheme_posted_by();
+				if ( !is_singular('matches') ):
+				blanktheme_posted_on();
+				blanktheme_posted_by();
+				endif;
 				?>
 			</div><!-- .entry-meta -->
-		<?php endif; ?>
+		<?php //endif; ?>
 	</header><!-- .entry-header -->
 
 	<?php //blanktheme_post_thumbnail(); ?>

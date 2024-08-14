@@ -719,7 +719,7 @@ textarea {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: #3237df;
+	/* background-color: #3237df; */
 }
 #primary-menu li {
 	text-align: center;
@@ -736,7 +736,7 @@ textarea {
     background-color: #8585e3;
     right: 0;
     position: absolute;
-    top: 50px;
+    top: 0px;
     width: 50px;
 	height: 50px;
     color: white;
@@ -772,7 +772,7 @@ textarea {
     position: fixed;
     height: 100%;
 	width: 65% !important;;
-    top: 46px;
+    top: 0px;
     left: -65%;
     /* width: 350px; */
 	display:flex;
@@ -824,7 +824,6 @@ textarea {
 
 @media screen and (min-width: 768px) {
 	#masthead {
-		background-color: #3237df;
 		color: white;
 		display: flex;
 		flex-direction: row;
@@ -841,21 +840,22 @@ textarea {
 	}
 	.site-branding{
 		width:40%;
-		display: inline-block;
+		/* display: inline-block; */
+		text-align: center;
 	}
-	.site-branding a {
+	/* .site-branding a {
 		float: right;
 	
-	}
+	} */
 	.site-branding a img {
 		width:150px;
 		height: auto;
 	
 	}
-	.main-navigation {
-		background-color: #3237df;
+	/* .main-navigation { */
+		/* background-color: #3237df; */
 		/* overflow: hidden; */
-	}
+	/* } */
 	
 	.main-navigation ul {
 		list-style-type: none;
@@ -1285,7 +1285,6 @@ textarea {
 	flex-direction: row;
 	justify-content: center;
 	align-items: start;
-	gap: 0;
 	color: rgb(243, 218, 218);
 	width:100%;
 	/* set color for all text including a tag to white */
@@ -1306,19 +1305,19 @@ textarea {
 	flex-direction: column;
 	justify-content: start;
 	align-items: start;
-	padding:10px;
-	background-color: grey;
+	padding:20px 0;
 
 }
 #secondary section {
 	display: flex;
-	flex-direction: column;
-	justify-content: start;
-	align-items: start;
-	padding: 10px;
-	background-color: #0d2f5b;
-	color: white;
-	width: 100%;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding: 0 20px;
+    background-color: #0d2f5b;
+    color: white;
+    width: 100%;
+    margin: 0 20px;
 }
 #secondary  ul {
 	list-style: none;
@@ -1346,6 +1345,41 @@ textarea {
     text-underline-offset: 10px;
 }
 /* Responsive related post */
+/* @media screen and (max-width: 1200px) {
+	.top-post-container {
+		flex-direction: column!important;
+		width:100%;
+		padding: 10px 0;
+	}
+	.left-first-post-container {
+		width: calc(100% )!important;
+		
+	}
+	.right-post-container {
+		width: calc(100%)!important;
+		display: flex;
+	}
+} */
+@media screen and (max-width: 1024px) {
+	.related-post-and-sidebar {
+		flex-direction: column!important;
+	}
+	.related-post {
+		width: 100%!important;
+	}
+	#secondary {
+		width: 100%!important;
+		display: flex;
+		flex-direction: column;
+	}
+	.related-post-and-sidebar {
+		padding: 0 !important;;
+	}
+	#footer-widget-area-one, #footer-widget-area-two {
+		width: 100%!important;
+	}
+}
+
 @media screen and (max-width: 768px) {
 	* {
 		font-size: 0.9rem;
@@ -1369,7 +1403,7 @@ textarea {
 		width:100%
 	}
 	.left-first-post-container {
-		width: calc(100% - 10px)!important;
+		width: calc(100%)!important;
 		
 	}
 	.right-post-container {
@@ -1377,9 +1411,9 @@ textarea {
 		display: flex;
 	}
 	.bottom-post-container  {
-		display: none!important;
+		/* display: none!important; */
 	}
-	#standings table  tbody tr td img {
+	#standings img {
 		height: 20px !important;
 		width:20px!important;
 	}
@@ -1451,19 +1485,29 @@ textarea {
 	a.wp-block-button__link{
 		width:100%!important;
 	}
+	.bottom-post-container  {
+		display: block !important;
+		
+	}
+	.bottom-posts {
+		width: 100%!important;
+	}
 }
 .related-post {
-	width: 70%;
+	width: 75%;
 	display: flex;
 	flex-direction: column;
 	justify-content: start;
-	gap: 20px;
+	/* gap: 20px; */
 
+}
+.related-post > div {
+	margin-top: 20px;
 }
 .related-post-block {
 	display: flex;
     flex-direction: column;
-    gap: 20px!;
+    gap: 20px;
     background-color: #0d2f5b;
     padding: 20px;
 }
@@ -1532,15 +1576,17 @@ textarea {
 .first-post-content {
     width: 100%;
     box-sizing: border-box;
+	background-color: rgba(0, 0, 0, 0.2);
+	padding: 10px 10px;
 }
 
-.first-post-content h3 {
+/* .first-post-content h3 {
     margin: 10px;
 }
 
 .first-post-content p {
     margin: 10px;
-}
+} */
 /* how to make the text inside .first-post-content fit inside the .thumbnail */
 
 .right-post-container {
@@ -1567,15 +1613,14 @@ textarea {
     padding-bottom: 10px; 
 	position: relative;
 }
-.right-posts::before {
+/* .right-posts::before {
 	content: "";
     position: absolute;
     height: 100%;
     width: 5px;
     background-color: #d6ec71;
-    /* bottom: 25%; */
     left: -10px;
-}
+} */
 .right-posts span a{
 	color: #ffff!important;
 }
@@ -1596,7 +1641,7 @@ textarea {
 
 .bottom-post-container .bottom-posts {
 	width: calc(33.33% - 10px);
-	height:20vh;
+	/* height:20vh; */
 	
 }
 .bottom-post  a {
@@ -1605,9 +1650,12 @@ textarea {
 	height: 100%;
 }
 .bottom-posts a img {
-	width: 100%;
+	/* width: 100%;
 	height: 100%;
-	display: block;
+	display: block; */
+	aspect-ratio: 16/9;
+    width: auto;
+    object-fit: cover;
 }
 .bottom-posts a img:hover {
 	/* zoom in the image when hover */
@@ -1615,6 +1663,9 @@ textarea {
 	transform: scale(1.1);
 
 	transition: 0.5s all ease-in-out;
+}
+.bottom-posts .bottom-post-content a h3 {
+	font-size: 1em;
 }
 /*end for css main content */
 /* Start styling for standing table */
@@ -1636,13 +1687,24 @@ textarea {
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	width:100%;
 }
 #standings {
 	width:100%;
 }
+#standings .team-name-logo {
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	align-items: center;
+}
 #standings>table>thead>tr>th{
 	text-align: left;
+}
+.top-table-container {
+	display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 }
 
 /* Styling for the form containing the select option tag */
@@ -1654,18 +1716,66 @@ textarea {
 }
 
 #leagueForm select {
-    padding: 10px;
+    padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: #f9f9f9;
     color: #333;
     outline: none;
+	text-transform: capitalize;
     transition: border-color 0.3s ease-in-out;
 }
+table {
+	width: 100%;
+	overflow-x: auto;
+}
 
+th, td {
+	
+	white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Make the first column sticky */
+th:first-child, td:first-child {
+	width:20px;
+	position: sticky;
+	left: 0;
+	background-color: #b9c7ce;
+	z-index: 2; /* Ensure it sits above other content */
+}
+th:nth-child(2), td:nth-child(2) {
+	width:100px;
+	position: sticky;
+	left: 20px;
+	background-color: #b9c7ce;
+	z-index: 2; /* Ensure it sits above other content */
+}
 #leagueForm select:focus {
     border-color: #0d2f5b;
 }
+.color-1 {
+	color: #5cd66c;
+}
+.color-2 {
+	color: #2e8fef;
+}
+.color-3 {
+	color: #f7eb83;
+}
+.color-4 {
+	color: #ff9800;
+}
+.color-5 {
+	color: #673ab7;
+}
+.color-6 {
+	color: #f9f9f9;
+}
+.color-null {
+	color: #cfd9de;
+}
+
+/* end for standing table */
 /* Start styling for match predict block */
 .match-predict-container {
 	padding: 20px;
@@ -1696,8 +1806,10 @@ textarea {
 	width: 100%;
 	box-sizing: border-box;
 	bottom: 0%;
-	padding: 2%
+	background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px 10px;
 }
+
 .bottom-predict-container {
 	width: 100%;
 	
@@ -1732,7 +1844,8 @@ textarea {
 }
 .bottom-predict-container .slick-track .bottom-predict-match .bottom-predict-content a h3 {
 	padding: 0;
-	margin:0
+	margin:0;
+	font-size: 1em;
 }
 .bottom-predict-container .slick-track .bottom-predict-match a {
 	height: 100%;
@@ -1762,9 +1875,9 @@ footer#colophon {
     justify-content: center;
     align-items: center;
 }
-.footer-one-container {
+/* .footer-one-container {
 	background-color: #aebe1b;
-}
+} */
 .footer-one-container .row {
 	display: flex;
     /* margin: 0 5%; */
@@ -1774,7 +1887,7 @@ footer#colophon {
 }
 #footer-widget-area-one {
 
-    width: 90%;
+    width: 70%;
     gap: 40px;
     color: white;
     display: flex;
@@ -1799,7 +1912,7 @@ footer#colophon {
 }
 #footer-widget-area-two {
 
-    width: 90%;
+    width: 70%;
     gap: 40px;
     color: white;
     display: block;

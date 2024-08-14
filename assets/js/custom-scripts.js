@@ -9,6 +9,16 @@ jQuery(document).ready(function($) {
         pauseOnHover: true,
         responsive: [
           {
+            breakpoint: 1200,
+            settings: {
+              slidesToShow: 4,
+              slidesToScroll: 2,
+              infinite: true,
+              dots: false,
+              arrows: false
+            }
+          },
+          {
             breakpoint: 768,
             settings: {
               slidesToShow: 2,

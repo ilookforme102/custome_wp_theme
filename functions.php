@@ -571,6 +571,7 @@ function footer_widget_init() {
         'after_title'   => '</h2>',
     ) );
 }
+
 add_action( 'widgets_init', 'footer_widget_init' );
 // Custom rewrite rules
 // function matches_rewrite_rules() {
@@ -583,6 +584,7 @@ add_action( 'widgets_init', 'footer_widget_init' );
 // add_action( 'init', 'matches_rewrite_rules' );
 
 // Add custom URL field to the 'matches' custom post type
+
 function set_custom_permalink_from_acf_field( $data, $postarr ) {
     // Only apply to specific post types, e.g., 'post'. Adjust as needed.
     if ( 'matches' === $data['post_type'] ) {

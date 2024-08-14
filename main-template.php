@@ -31,7 +31,7 @@ get_header();
                     if ( $query->have_posts() ) :
                         include get_template_directory().'/components/related_post.php';
                         
-                        get_sidebar();
+                        // get_sidebar();
                         // the_posts_navigation();
 
                     else :

@@ -38,11 +38,12 @@
 			<?php endif; ?>
 
 			<?php if ( is_active_sidebar( 'footer-2' ) ) : ?>
-				<div class="footer-two-container container">
+				<div class="footer-two-container">
 					<div class="row">
-						<div id="footer-widget-area-two" class="widget-area">
-							<?php dynamic_sidebar( 'footer-2' ); ?>
-						</div>
+					<div id="footer-widget-area-two" class="widget-area container">
+					
+						<?php dynamic_sidebar( 'footer-2' ); ?>
+					</div>
 					</div>	
 				</div><!-- #footer-widget-area-two -->
 

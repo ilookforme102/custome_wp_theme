@@ -10,19 +10,22 @@ $leagues = [
 
 ?>
 <div class="standing-table">
-<div class= "most-top-heading">
-    <h2> Bảng xếp hạng </h2>
+<div class="top-table-container">
+    <div class= "most-top-heading">
+        <h2> Bảng xếp hạng </h2>
+    </div>
+    <div class="form-container">
+        <form id="leagueForm">
+            <select id="leagueSelect">
+                <?php foreach ($leagues as $leagueName => $leagueId) : ?>
+                    <option value="<?php echo $leagueId; ?>"><?php echo $leagueName; ?></option>
+                <?php endforeach; ?>    
+                <!-- Add more leagues as needed -->
+            </select>
+        </form>
+    </div>
 </div>
-<div class="form-container">
-    <form id="leagueForm">
-        <select id="leagueSelect">
-            <?php foreach ($leagues as $leagueName => $leagueId) : ?>
-                <option value="<?php echo $leagueId; ?>"><?php echo $leagueName; ?></option>
-            <?php endforeach; ?>    
-            <!-- Add more leagues as needed -->
-        </select>
-    </form>
-</div>
+
 <div id="standings"></div>
 </div>
 <script>
@@ -44,16 +47,15 @@ $leagues = [
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Position</th>
                                     <th>#</th>
                                     <th>Team</th>
-                                    <th>Played</th>
-                                    <th>Won</th>
-                                    <th>Drawn</th>
-                                    <th>Lost</th>
-                                    <th>Scored</th>
-                                    <th>Against</th>
-                                    <th>Points</th>
+                                    <th>Trận</th>
+                                    <th>Thắng</th>
+                                    <th>Hòa</th>
+                                    <th>Thua</th>
+                                    <th>B.Thắng</th>
+                                    <th>B.Thua</th>
+                                    <th>Điểm</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -61,9 +63,13 @@ $leagues = [
                     var standings = teamData.map((team, index) => {
                         return `
                             <tr>
-                                <td>${index + 1}</td>
-                                <td><img src="https://asset.asiasport.com/${team.logo}" alt="${team.teamName}" style="width: 30px; height: 30px;"></td>
-                                <td>${team.teamName}</td>
+                                <td class="${team.promotionColor}">${index + 1}</td>
+                                <td>
+                                    <div class="team-name-logo">
+                                        <img src="https://asset.asiasport.com/${team.logo}" alt="${team.teamName}" style="width: 30px; height: 30px;">
+                                        <p>${team.teamName}</p>
+                                    </div>
+                                </td>
                                 <td>${team.gamesPlayed}</td>
                                 <td>${team.gamesWon}</td>
                                 <td>${team.gamesDrawn}</td>
