@@ -10,7 +10,7 @@
 get_header();
 ?>
     <main id="primary" class="site-main">
-		<div class="match_list_container">
+		<div class="match_list_container container">
 			<?php include get_template_directory().'/components/match-list.php'; ?>
 		</div>
 		<div class="site-main-content">

@@ -1,12 +1,14 @@
 jQuery(document).ready(function($) {
     $('.match_list').slick({
-        slidesToShow: 6,
+        slidesToShow: 4,
         slidesToScroll:2 ,
         autoplay: false,
         autoplaySpeed: 20000,
         arrows: false,
         dots: false,
         pauseOnHover: true,
+        // centerMode: true,
+        centerPadding: '20px',
         responsive: [
           {
             breakpoint: 1200,
@@ -38,35 +40,37 @@ jQuery(document).ready(function($) {
           }
         ],
       }),
-      $('.bottom-predict-container').slick({
-        slidesToShow: 3,
-        slidesToScroll:2 ,
-        autoplay: false,
-        autoplaySpeed: 20000,
-        arrows: false,
-        dots: false,
-        pauseOnHover: true,
-        responsive: [
-          {
-            breakpoint: 768,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
-              infinite: true,
-              dots: false,
-              arrows: false
-            }
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
-              arrows: false
-            }
+    $('.bottom-predict-container').slick({
+      slidesToShow: 3,
+      slidesToScroll:2 ,
+      autoplay: false,
+      autoplaySpeed: 20000,
+      arrows: false,
+      dots: false,
+      centerMode: true,
+      centerPadding: '40px',
+      pauseOnHover: true,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            infinite: true,
+            dots: false,
+            arrows: false
           }
-        ],
-      })
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false
+          }
+        }
+      ],
+    })
 });
 jQuery(document).ready(function($) {
   $('.tab-linkss li').on('click', function() {

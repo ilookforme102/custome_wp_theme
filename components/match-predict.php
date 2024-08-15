@@ -16,29 +16,47 @@ if ( $matches->have_posts() ) :
         <div class= "most-top-heading">
             <h2> Nhận định dự đoán </h2>
         </div>
-        <div class="top-predict-container">
-        <?php
-            while ( $matches->have_posts() ) :
-                // Get all post from query
-                $matches->the_post();
-                if ( $matches->current_post == 0 ) {
+        <div class="first-part-predict-container top-post-container">
+            <div class="top-predict-container left-first-post-container ">
+                <?php
+                    while ( $matches->have_posts() ) :
+                        // Get all post from query
+                        $matches->the_post();
+                        if ( $matches->current_post == 0 ) {
+                            ?>
+                            
+                            <a href="<?php the_permalink(); ?>"><img src="<?php the_post_thumbnail_url(); ?>" alt=""></a>
+                            <div class="first-predict-content">
+                                <a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
+                            </div>
+                            <?php
+                        }
+                    endwhile;
                     ?>
-                    
-                    <a href="<?php the_permalink(); ?>"><img src="<?php the_post_thumbnail_url(); ?>" alt=""></a>
-                    <div class="first-predict-content">
-                        <a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
-                    </div>
-                    <?php
-                }
-            endwhile;
-            ?>
+            </div>
+            <div class="top-right-predict-container right-post-container">
+                <?php
+                        while ( $matches->have_posts() ) :
+                            $matches->the_post();
+                            if ( $matches->current_post > 0 && $matches->current_post < 6 ) {
+                                ?>
+                                <div class="top-right-predict-match right-posts">
+                                    <span><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></span>
+                                </div>
+                                <?php
+                            }
+                        endwhile;
+                        ?>
+
+            </div>
         </div>
+        
         <div class="bottom-predict-container">
         <?php
             while ( $matches->have_posts() ) :
                 // Get all post from query
                 $matches->the_post();
-                if ( $matches->current_post > 0 ) {
+                if ( $matches->current_post > 5 ) {
                     ?>
                 <div class="bottom-predict-match">
                     

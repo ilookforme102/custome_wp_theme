@@ -77,9 +77,9 @@
 				<?php include get_template_directory().'/components/match-predict.php'; ?>	
 			</div>
 			<div class='editor-content'>
-				<div class="most-top-heading">
+				<!-- <div class="most-top-heading">
 					<h2> Highlights </h2>
-				</div>
+				</div> -->
             <?php
             if ( have_posts() ) :
                 while ( have_posts() ) : the_post();
