@@ -70,6 +70,7 @@ $response = curl_exec($curl);
 curl_close($curl);
 $matches = json_decode($response);
 ?>
+
 <div class="replayWrap">
 <?php
     $path = explode('/',$_SERVER['REQUEST_URI']);
@@ -80,7 +81,7 @@ $matches = json_decode($response);
         $streamer_id = end($string);
         $match_id = $string[count($string)-2];
         
-        echo $match_id;
+        // echo $match_id;
          foreach($matches->value->result as $i=>$match){
             if($match->match_id == $match_id) $current_match = $matches->value->result[$i];
         }

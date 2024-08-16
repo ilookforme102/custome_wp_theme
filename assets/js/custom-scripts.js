@@ -7,7 +7,7 @@ jQuery(document).ready(function($) {
         arrows: false,
         dots: false,
         pauseOnHover: true,
-        // centerMode: true,
+        centerMode: true,
         centerPadding: '20px',
         responsive: [
           {
@@ -35,7 +35,8 @@ jQuery(document).ready(function($) {
             settings: {
               slidesToShow: 1,
               slidesToScroll: 1,
-              arrows: false
+              arrows: false,
+              centerMode: true,
             }
           }
         ],
@@ -105,5 +106,23 @@ jQuery(document).ready(function($) {
       }
       );
       
+  });
+});
+// jQuery(document).ready(function($) {
+//   $('.menu-item-has-children > a').on('click', function(e) {
+//       e.preventDefault(); // Prevent the default link behavior
+//       $(this).next('.sub-menu').slideToggle(); // Toggle the sub-menu
+//   });
+// });
+jQuery(document).ready(function($) {
+  $('.coblog-offcanvas-wrap .menu-top-menu-container li.menu-item-has-children').click(function(e) {
+      // e.preventDefault(); 
+
+
+      // Toggle the active class on the clicked parent item
+      $(this).toggleClass('active');
+
+      // Slide toggle the sub-menu
+      $(this).find('.sub-menu').slideToggle();
   });
 });
