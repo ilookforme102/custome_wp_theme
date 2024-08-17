@@ -26,7 +26,7 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'blanktheme' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="logo-nav-container">
+		<div class="logo-nav-container container">
 			<div class="site-branding">
 				<?php
 				the_custom_logo();

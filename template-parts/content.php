@@ -34,7 +34,7 @@
 	<?php //blanktheme_post_thumbnail(); ?>
 
 	<div class="entry-content">
-		<div class="main-content-container">
+		<div id='single-post-content-container' class="main-content-container">
 		<?php
 		the_content(
 			sprintf(

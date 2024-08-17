@@ -15,7 +15,8 @@
 	</header><!-- .entry-header -->
 
 	<?php blanktheme_post_thumbnail(); ?>
-
+	<div class="category-sidebar-container container">
+    <div  id="single-post-container">
 	<div class="entry-content">
 		<?php
 		the_content();
@@ -28,7 +29,11 @@
 		);
 		?>
 	</div><!-- .entry-content -->
-
+	</div>
+	<?php 
+		get_sidebar();
+		?>
+	</div>
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
 			<?php

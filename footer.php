@@ -27,24 +27,24 @@
 		</div><!-- .site-info -->
 		<div class="footer-widget">
 			<?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
-			<div class="footer-one-container container">
-				<div class="row">
-					<div id="footer-widget-area-one" class="widget-area">
+			<div class="footer-one-container">
+				<!--<div class="row">-->
+					<div id="footer-widget-area-one" class="widget-area container">
 						<?php dynamic_sidebar( 'footer-1' ); ?>
 					</div><!-- #footer-widget-area-one -->
-				</div>
+				<!--</div>-->
 			</div>
 				
 			<?php endif; ?>
 
 			<?php if ( is_active_sidebar( 'footer-2' ) ) : ?>
 				<div class="footer-two-container">
-					<div class="row">
+					<!--<div class="row">-->
 					<div id="footer-widget-area-two" class="widget-area container">
 					
 						<?php dynamic_sidebar( 'footer-2' ); ?>
 					</div>
-					</div>	
+					<!--</div>	-->
 				</div><!-- #footer-widget-area-two -->
 
 			<?php endif; ?>
