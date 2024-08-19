@@ -17,6 +17,10 @@ get_header();
 
             while ( have_posts() ) :
                 the_post();
+                //return post type
+                $post_type = get_post_type();
+                echo 'The post type is: ' . $post_type;
+
                 get_template_part( 'template-parts/content', get_post_type() );
                 // the_post_navigation(
                 // 	array(
@@ -36,10 +40,13 @@ get_header();
 			
         </div>
 		<?php 
-			if ( !is_singular('page') ) {
-				get_sidebar();
-			}
-			?>
+            //only show sidebar if current page is not page or not belong to custome post type matches
+            if($post_type != 'page' && $post_type != 'matches'){
+                get_sidebar();
+            }
+        ?>
+
+			
     </div> <!-- .main-content-sidebar-container -->
 </main><!-- #main -->
 

@@ -9,14 +9,26 @@
 
 get_header();
 ?>
-
+<?php
+$paged = ( get_query_var( 'page' ) ) ? get_query_var( 'paged' ) : 1;
+$category = get_the_category();
+$args = array(
+    'post_type' => 'post',
+	'category_name' => $category[0]->slug,
+    'posts_per_page' => 3,
+    'paged' => $paged,
+    'orderby' => 'date',
+    'order' => 'DESC',
+);
+$query =  new WP_Query($args);
+?>
 	<main id="primary" class="site-main">
 	<div class="category-sidebar-container container">
 	
 		<div id='excerpt-cate'>
 
 		
-		<?php if ( have_posts() ) : ?>
+		<?php if($query->have_posts())  : ?>
 
 
 			<header class="page-header">
@@ -28,8 +40,10 @@ get_header();
 			</header><!-- .page-header -->
 
 			<?php
-			while ( have_posts() ) :
-				the_post();
+			while($query->have_posts()) :
+				// limit 3 posts per page
+				
+				$query->the_post();
 
 				/*
 				 * Include the Post-Type-specific template for the content.
@@ -57,8 +71,27 @@ get_header();
 
 			endwhile;
 
-			the_posts_navigation();
+			// the_posts_navigation();
+			
 		?>
+		<div class="pagination">
+			<?php
+			echo paginate_links( array(
+				'format' => '?paged=%#%',
+				'current' => max(1, get_query_var('paged')),
+				'total' => $query->max_num_pages,
+				'show_all' => false,
+				'end_size' => 3,
+				'mid_size' => 3,
+				'prev_next' => true,
+				'prev_text' => __('&laquo; Previous'),
+				'next_text' => __('Next &raquo;'),
+				'type' => 'plain',
+				'add_args' => false,
+				'add_fragment' => '',
+			) );
+			?>
+		</div>
 		</div>
 		<?php get_sidebar(); ?>
 		
@@ -72,7 +105,7 @@ get_header();
 		?>
 		
 	</div> 
-
+	<?php wp_reset_postdata(); ?>
 	</main><!-- #main -->
 
 <?php

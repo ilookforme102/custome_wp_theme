@@ -9,14 +9,23 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<div id='xem-lai-container' class="category-sidebar-container container">
+	
 
 	<?php blanktheme_post_thumbnail(); ?>
-	<div class="category-sidebar-container container">
+	
     <div  id="single-post-container">
+	<header class="entry-header">
+
+		<?php if(is_page('xem-lai-tran-dau') && isset(explode('/',$_SERVER['REQUEST_URI'])[3])) {
+			echo '';
+		}
+		else {
+			echo the_title( '<h1 class="entry-title">', '</h1>' );
+		}
+		?>
+	</header><!-- .entry-header -->
 	<div class="entry-content">
 		<?php
 		the_content();
@@ -31,7 +40,7 @@
 	</div><!-- .entry-content -->
 	</div>
 	<?php 
-		get_sidebar();
+		//get_sidebar();
 		?>
 	</div>
 	<?php if ( get_edit_post_link() ) : ?>

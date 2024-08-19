@@ -2285,10 +2285,12 @@ th:nth-child(2), td:nth-child(2) {
 	background-color: rgba(0, 0, 0, 0.2);
     padding: 10px 10px;
 }
-
+.top-predict-container .first-predict-content h3 {
+	color: #e3de00
+}
 .bottom-predict-container {
 	width: 100%;
-	
+
 }
 .bottom-predict-container > div {
 	/* background-color: #0d2f5b; */
@@ -3012,4 +3014,11 @@ main article h1 {
 .top-padding-20 {
 	padding-top: 20px;
 }
-/*styling for single post */
+/*styling for single page xem-lai-tran-dau */
+span.edit-link {
+    display: none;
+}
+#xem-lai-container #single-post-container {
+	padding: 0 10px ;
+}
+

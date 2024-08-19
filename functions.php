@@ -289,6 +289,26 @@ add_action( 'acf/include_fields', function() {
 			'first_day' => 1,
 		),
 		array(
+			'key' => 'field_66c2fb6547e0c',
+			'label' => 'Match Status',
+			'name' => 'match_status',
+			'aria-label' => '',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => 'Kết thúc',
+			'maxlength' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+		),
+		array(
 			'key' => 'field_66a8533db18dd',
 			'label' => 'Home logo',
 			'name' => 'home_logo',
@@ -493,6 +513,7 @@ function add_custom_fields_to_matches_content( $content ) {
 		$away_name = get_post_meta( $post->ID, 'away_name', true );
 		$away_goal_ft = get_post_meta( $post->ID, 'away_goal_ft', true );
 		$away_goal_ht = get_post_meta( $post->ID, 'away_goal_ht', true );
+		$match_status = get_post_meta( $post->ID, 'match_status', true ) ?: 'Kết thúc';
 		$away_logo = wp_get_attachment_url( get_post_meta($post->ID, 'away_logo',true));
 
         // Format the custom fields
@@ -511,7 +532,7 @@ function add_custom_fields_to_matches_content( $content ) {
 			."</div>"
 		."</div>"
 		."<div class='match-info-header-center'>"
-			."<p class='match_end-time'>Kết thúc</p>"
+			."<p class='match_end-time'>$match_status</p>"
 			."<p class='match_end_time-text'>$end_date</p>"
 		."</div>"
 		."<div class='away-info'>"
@@ -652,3 +673,7 @@ function convertUrl($str){
     $str = str_replace(' ','-',$str);
     return strtolower($str);
 }
+// function my_pagination_rewrite() {
+//     add_rewrite_rule('blog/page/?([0-9]{1,})/?$', 'index.php?category_name=blog&paged=$matches[1]', 'top');
+// }
+// add_action('init', 'my_pagination_rewrite');

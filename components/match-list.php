@@ -1,6 +1,8 @@
 
 <?php
 // get all matches from the 'matches' custom post type and display them in a list
+// saet time in Vietnam timestamp
+// date_default_timezone_set('Asia/Ho_Chi_Minh');
 $args = array(
     'post_type' => 'matches',
     'posts_per_page' => -1,
@@ -24,14 +26,20 @@ if ( $matches->have_posts() ) :
             $away_logo = get_field( 'away_logo' );
             $away_name = get_field( 'away_name' );
             $end_date = get_field( 'end_date' );
+            $match_status = get_field( 'match_status' );
             $matches_url = get_permalink();
             ?>
             
             <div class="match">
                 <a href="<?php echo $matches_url; ?>">
                 <div class="match_end">
-                    <p>Kết thúc</p>
-                    <p class="match_end_text"><?php echo date( 'd/m', strtotime( $end_date ) ); ?></p>
+                    <p><?php // $ return match status or "Kết thúc" if match status is empty, using shortform php
+                        echo $match_status ?: 'Kết thúc'; ?>
+                    </p>
+                       
+                    <p class="match_end_text"><?php echo // get d/m/Y from end_date 
+                    DateTime::createFromFormat('d/m/Y', $end_date)->format('d/m'); ?>
+                    </p>
                 </div>
                 <div class= "home_info">
                     <div class="home_logo">

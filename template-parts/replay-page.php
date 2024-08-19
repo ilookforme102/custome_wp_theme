@@ -122,7 +122,7 @@ $matches = json_decode($response);
          foreach($matches->value->result as $match){
            // echo $match->home_team_logo;
          ?>
-            <a class="replayItem" href="<?php echo get_permalink().'xem-lai-tran-dau/'.convertUrl($match->home_team_name).'-'.convertUrl($match->away_team_name).'-'. $match->match_id.'-'.$match->streamer_id ?>/">
+            <a class="replayItem" href="<?php echo get_permalink().convertUrl($match->home_team_name).'-'.convertUrl($match->away_team_name).'-'. $match->match_id.'-'.$match->streamer_id ?>/">
                     <div class="matchTime"><?php echo date("d/m/Y H:i:s",$match->match_time) ?></div>
                     <div class="teamA">
                         <img width="45" height="45" src="<?php echo $match->home_team_logo ?>">
